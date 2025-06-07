@@ -1,14 +1,25 @@
 class GameLogic:
+    """
+    Handles the logic for Game of Life
+    """
 
     def __init__(self, settings):
+        """
+        Initializes the game logic using provided settings
+
+        Args:
+            settings (GameSettings): The settings for the game
+        """
         self.rows = settings.rows
         self.cols = settings.cols
         self.survive = settings.survive
         self.birth = settings.birth
         self.grid = [[0 for _ in range(self.cols)] for _ in range(self.rows)]
 
-    
     def step(self):
+        """
+        Advances the game by one generation
+        """
         new_grid = [[0 for _ in range(self.cols)] for _ in range(self.rows)]
 
         for row in range(self.rows):
@@ -23,6 +34,16 @@ class GameLogic:
         self.grid = new_grid
 
     def count_alive_neighbors(self, row, col):
+        """
+        Counts the number of alive neighboring cells around a cell
+
+        Args:
+            row (int): Row index of the cell
+            col (int): Column index of the cell
+
+        Returns:
+            int: The number of alive neighbors
+        """
 
         count = 0
         for i in range(-1, 2):

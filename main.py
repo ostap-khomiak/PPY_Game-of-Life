@@ -6,6 +6,12 @@ from gui import GameGUI
 
 
 def start(settings):
+    """
+    Starts the game with the provided settings
+
+    Args:
+        settings (GameSettings): The game settings to initialize the board with
+    """
 
     print("Start")
     root = tk.Tk()

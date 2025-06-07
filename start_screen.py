@@ -5,6 +5,11 @@ from settings import GameSettings
 
 
 def show(callback):
+    """
+    Launches the start screen for game settings
+    Args:
+        callback (function): is a function that should be called after this function
+    """
     start_root = tk.Tk()
     start_root.title("Game of Life")
 
@@ -18,6 +23,14 @@ def show(callback):
 
 
     def add_setting(name, value, key):
+        """
+        Adds a labeled input field to the settings window
+
+        Args:
+            name (str): The label to display
+            value (any): The default value
+            key (str): The key used to identify this input in the game settings
+        """
         row = tk.Frame(settings_frame)
         row.pack(fill=tk.X, padx=10, pady=10)
         tk.Label(row, text=name).pack(side=tk.LEFT)
@@ -32,6 +45,9 @@ def show(callback):
 
 
     def start():
+        """
+        Creates GameSettings object and starts game
+        """
         try:
             rows = int(options["rows"].get())
             cols = int(options["cols"].get())
