@@ -3,9 +3,9 @@ from start_screen import show
 from logic import GameLogic
 from gui import GameGUI
 
-def start(settings):
 
-    #TODO  writing board to file
+
+def start(settings):
 
     print("Start")
     root = tk.Tk()
@@ -13,8 +13,6 @@ def start(settings):
 
     logic = GameLogic(settings)
     gui = GameGUI(root, logic)
-
-
 
     root.mainloop()
 
