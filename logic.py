@@ -16,6 +16,7 @@ class GameLogic:
         self.birth = settings.birth
         self.grid = [[0 for _ in range(self.cols)] for _ in range(self.rows)]
 
+
     def step(self):
         """
         Advances the game by one generation
@@ -32,6 +33,8 @@ class GameLogic:
                     new_grid[row][col] = 1
 
         self.grid = new_grid
+
+
 
     def count_alive_neighbors(self, row, col):
         """

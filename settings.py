@@ -12,6 +12,7 @@ class GameSettings:
             survive (tuple or int): Neighbor counts for cell survival
             birth (tuple or int): Neighbor counts for cell birth
         """
+
         self.rows = rows
         self.cols = cols
         self.survive = survive

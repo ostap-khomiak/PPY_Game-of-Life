@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 
-CELL_SIZE = 40
+CELL_SIZE = 30
 ALIVE_COLOR = "green"
 DEAD_COLOR = "black"
 GRID_COLOR = "gray"
@@ -10,6 +10,7 @@ class GameGUI:
     """
     Handles the graphical interface for game board
     """
+
     def __init__(self, root, logic):
         """
         Initializes the GameGUI
@@ -41,7 +42,7 @@ class GameGUI:
         self.canvas.bind("<Button-1>", self.toggle_cell)
 
         self.draw_grid()
-        self.update()
+
 
     def draw_grid(self):
         """
@@ -59,6 +60,7 @@ class GameGUI:
                 fill = ALIVE_COLOR if self.logic.grid[row][col] else DEAD_COLOR
                 self.canvas.create_rectangle(x1, y1, x2, y2, fill=fill, outline=GRID_COLOR)
 
+
     def toggle_cell(self, event):
         """
         Toggles a cell's state between alive and dead on mouse click.
@@ -73,6 +75,8 @@ class GameGUI:
             self.logic.grid[row][col] = 0 if self.logic.grid[row][col] == 1 else 1
             self.draw_grid()
 
+
+
     def save_grid(self):
         """
         Saves the current board state to a text file
@@ -83,6 +87,7 @@ class GameGUI:
         with open(path, "w") as file:
             for row in self.logic.grid:
                 file.write(" ".join(map(str, row)) + "\n")
+
 
     def load_grid(self):
         """
@@ -120,9 +125,3 @@ class GameGUI:
             self.logic.step()
             self.draw_grid()
             self.root.after(100, self.run_step)
-
-    def update(self):
-        """
-        Redraws the board (used for manual refresh or after loading).
-        """
-        self.draw_grid()
